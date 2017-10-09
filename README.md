@@ -115,7 +115,7 @@ echo ${sayi_degiskeni_1}
 # Metot 2
 echo -n "Bir sayi giriniz: "                     # (-n) parametre bir alt satira gecmeyi onler.
 read -n 1 sayi_degiskeni_2                       # (-n 1) ile kullanicidan sadece bir karakter alir.
-echo ${sayi_degiskeni_2}
+echo -e "\n${sayi_degiskeni_2}"                  # (-e) parametresi ile \n,\t.. gibi ifadelere izin verir.
 
 # Metot 3
 read -p "Bir sayi giriniz: " sayi_degiskeni_3    # (-p) ile tek satirda kullanicidan veri alma
@@ -127,12 +127,11 @@ read -sp "Parola: " parola                       #1/ (-s) ile kullanicinin girdi
 echo ${parola}
 
 # Metot 5
-echo -e "\tBir cok veri giriniz, ama araya bosluk koyun:"   # (-e) parametresi ile \n,\t.. gibi ifadelere izin verir.
+echo -e "\tBir cok veri giriniz, ama araya bosluk koyun:"  
 read degisken1 degisken2 degisken3
 echo ${degisken1}
 echo ${degisken2}
-echo ${degisken3}                                           #1/ 3 ten fazla degisken girdiyseniz,
-                                                            #2/ son degiskenlerin hepsi burda toplanir.
+echo ${degisken3}            # 3 ten fazla degisken girdiyseniz, son degiskenlerin hepsi burda toplanir.
 
 # Filename: < "3.0_read_value.sh" >
 ```
