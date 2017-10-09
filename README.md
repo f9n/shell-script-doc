@@ -12,7 +12,7 @@ Ve insanlarin her gün bilgisayarinda yaptiği sıkıcı işleri otomatikleştir
 
 # Repoda anlamadigim kisimlar var?
  Eger anlamadiginiz kisim varsa, issue olarak belirtin. Daha aciklayici yazmaya calisalim.
- Ve anlasilmayan kismi guncelleyelim. Bunu kismi yazmamin sebebide kesin olucak eminim, adam akilli yazmamis olabilirim.
+ Ve anlasilmayan kismi guncelleyelim. Bunu kismi yazmamin sebebide, adam akilli yazmamis olabilirim.
 
 # Nedir bu shell script?
 Terminali actiginda yazdigin kodlarin duzenli bir sekilde kullanilmasi diyilebilir.
@@ -26,7 +26,7 @@ Bu duzenli kodlar ".sh" uzantili dosyada tutulur(illa gerekli degil ama sen yaz)
 bash
 ```
 
-<h6>Aslinda bu kisim gereksiz gibi sisteminizde bash olsa yeter. Cunku biz script'leriimizin hangi shell ile calisacagini, shebang kisminda yaziyoruz.</h6>
+<h6>Aslinda bu kisim gereksiz, sisteminizde bash olsa yeter. Cunku biz script'leriimizin hangi shell ile calisacagini, shebang kisminda yaziyoruz.</h6>
 
 # Klasik "Merhaba, Dunya!"
 <p>Ilk olarak sevdiginiz editorle "hello.sh" aciyoruz. Ben "vim" ile actim. Sonrasinda asagidaki kodlari dosyanin icine yaziyoruz. Daha sonra 'chmod' komutuyla calistirma izni vermeliyiz.Sonrasinda script'imizi calistiriyoruz.</p>
@@ -38,7 +38,7 @@ bash
 ```bash
 #!/usr/bin/env bash
 echo 'Merhaba, Dunya!'
-                                                                                        # "hello.sh"
+                                                                                        # < "hello.sh" >
 ```
 
 ```bash
