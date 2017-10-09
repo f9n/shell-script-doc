@@ -29,7 +29,7 @@ bash
 <h6>Aslinda bu kisim gereksiz, sisteminizde bash olsa yeter. Cunku biz script'leriimizin hangi shell ile calisacagini, shebang kisminda yaziyoruz.</h6>
 
 # 1. Klasik "Merhaba, Dunya!"
-<p>Ilk olarak sevdiginiz editorle "hello.sh" aciyoruz. Ben "vim" ile actim. Sonrasinda asagidaki kodlari dosyanin icine yaziyoruz. Daha sonra 'chmod' komutuyla calistirma izni vermeliyiz.Sonrasinda script'imizi calistiriyoruz.</p>
+<p>Ilk olarak sevdiginiz editorle "hello.sh" aciyoruz. Ben "vim" ile actim. Sonrasinda asagidaki kodlari dosyanin icine yaziyoruz. Daha sonra 'chmod' komutuyla calistirma izni vermeliyiz.Sonrasinda script'imizi calistiriyoruz. '#' ifadesiyle baslayan kisimlar yorum satiri oldugunu ifade eder.</p>
 
 ```bash
 (bash-console)$ vim hello.sh
@@ -38,11 +38,12 @@ bash
 ```bash
 #!/usr/bin/env bash
 echo 'Merhaba, Dunya!'
-                                                                                        # < "hello.sh" >
+# Filename: < "hello.sh" >
 ```
 
 ```bash
-(bash-console)$ chmod +x hello.sh # Bu ifadeyi her script yazdiginizda yapiniz. Tabi ki dosya ismini degistiriniz.
+(bash-console)$ chmod +x hello.sh # Bu ifadeyi her script yazdiginizda yapiniz.
+                                  # Tabi ki dosya ismini degistiriniz.
 (bash-console)$ ./hello.sh
 Merhaba, Dunya!
 ```
@@ -56,20 +57,28 @@ Merhaba, Dunya!
 
 ```bash
 #!/usr/bin/env bash
-integer_degisken=10
-string_degisken="Naber"
+integer=10
+string="Naber, Nasilsin?"
 
-echo $integer_degisken    # "integer_degisken" degiskenimizin icindeki degeri ekrana basar.
-echo $string_degisken     # "string_degisken" degiskenimizin icindeki degeri ekrana basar.
-echo ${#string_degisken}  # "integer_degisken" degiskenimizin icindeki degerin uzunlugunu ekrana basar.
-                            # Klasik len() fonksiyonu gibi
-                                                                                        # < "variables.sh" >
+echo $integer       # "integer" degiskenimizin icindeki degeri ekrana basar.
+echo $string        # "string" degiskenimizin icindeki degeri ekrana basar.
+echo ${#string}     # "string" degiskenimizin icindeki degerin uzunlugunu ekrana basar.
+                        # Klasik len() fonksiyonu gibi
+                    # ${degisken:indis:uzunluk}
+                    # Bash'te karakter dizilerin indisleri 0 dan baslar.
+echo ${string:7}    # "string" degiskenimizin 7.ci indisinden baslayarak yazdirir.
+echo ${string:1:4}  # "string" degiskenimizin 1.ci indisinden baslayarak, 4 birim uzunlugunda karakter dizisi yazdirir.
+
+# Filename: < "variables.sh" >
 ```
 
 ```bash
 (bash-console)$ ./variables.sh
 10
-Naber
+Naber, Nasilsin?
+16
+Nasilsin?
+aber
 ```
 
 # 
