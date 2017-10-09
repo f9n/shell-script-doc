@@ -28,7 +28,7 @@ bash
 
 <h6>Aslinda bu kisim gereksiz, sisteminizde bash olsa yeter. Cunku biz script'leriimizin hangi shell ile calisacagini, shebang kisminda yaziyoruz.</h6>
 
-# Klasik "Merhaba, Dunya!"
+# 1. Klasik "Merhaba, Dunya!"
 <p>Ilk olarak sevdiginiz editorle "hello.sh" aciyoruz. Ben "vim" ile actim. Sonrasinda asagidaki kodlari dosyanin icine yaziyoruz. Daha sonra 'chmod' komutuyla calistirma izni vermeliyiz.Sonrasinda script'imizi calistiriyoruz.</p>
 
 ```bash
@@ -42,11 +42,37 @@ echo 'Merhaba, Dunya!'
 ```
 
 ```bash
-(bash-console)$ chmod +x hello.sh
+(bash-console)$ chmod +x hello.sh # Bu ifadeyi her script yazdiginizda yapiniz. Tabi ki dosya ismini degistiriniz.
 (bash-console)$ ./hello.sh
 Merhaba, Dunya!
 ```
 
+# 2. Degisken Kullanimi
+<p>Klasik programlama bilenler zaten bu evreyi biliyor. Sadece kodda bakarakta anlayabilirsiniz. "vim" ile yeni dosya aciniz. Sonra kodlari yaziniz.</p>
+
+```bash
+(bash-console)$ vim variables.sh
+```
+
+```bash
+#!/usr/bin/env bash
+integer_degisken=10
+string_degisken="Naber"
+
+echo $integer_degisken    # "integer_degisken" degiskenimizin icindeki degeri ekrana basar.
+echo $string_degisken     # "string_degisken" degiskenimizin icindeki degeri ekrana basar.
+echo ${#string_degisken}  # "integer_degisken" degiskenimizin icindeki degerin uzunlugunu ekrana basar.
+                            # Klasik len() fonksiyonu gibi
+                                                                                        # < "variables.sh" >
+```
+
+```bash
+(bash-console)$ ./variables.sh
+10
+Naber
+```
+
+# 
 
 # Task Listesi
 - [ ] Benim kisimlerini bizime cevir.
