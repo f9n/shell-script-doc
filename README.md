@@ -139,3 +139,12 @@ echo ${degisken3}            # 3 ten fazla degisken girdiyseniz, son degiskenler
 
 # Task Listesi
 - [ ] Benim kisimlerini bizime cevir.
+- [ ] If, else
+- [ ] For, while
+- [ ] Switch, case
+- [ ] Functions
+- [ ] Arrays
+- [ ] Pipe
+- [ ] Argv
+- [ ] source
+- [ ] <, <<, >, >>, 2>
