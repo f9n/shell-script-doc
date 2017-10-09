@@ -29,7 +29,7 @@ bash
 <h6>Aslinda bu kisim gereksiz, sisteminizde bash olsa yeter. Cunku biz script'leriimizin hangi shell ile calisacagini, shebang kisminda yaziyoruz.</h6>
 
 # 1. Klasik "Merhaba, Dunya!"
-<p>Ilk olarak sevdiginiz editorle "1.0_hello.sh" aciyoruz. Ben "vim" ile actim. Sonrasinda asagidaki kodlari dosyanin icine yaziyoruz. Daha sonra 'chmod' komutuyla calistirma izni vermeliyiz.Sonrasinda script'imizi calistiriyoruz. '#' ifadesiyle baslayan kisimlar yorum satiri oldugunu ifade eder.</p>
+<p>Ilk olarak sevdiginiz editorle "1.0_hello.sh" aciyoruz. Ben "vim" ile actim. Sonrasinda asagidaki kodlari dosyanin icine yaziyoruz. Daha sonra 'chmod' komutuyla calistirma izni vermeliyiz.Sonrasinda script'imizi calistiriyoruz. '#' ifadesiyle baslayan kisimlar yorum satiri oldugunu ifade eder. '#1/' veya '#2/' gibi ifadeler gorurseniz, cumlenin devam ettigi anlamina gelir.</p>
 
 ```bash
 (bash-console)$ vim 1.0_hello.sh
@@ -65,14 +65,16 @@ string="Naber, Nasilsin?"
 
 echo $integer       # "integer" degiskenimizin icindeki degeri ekrana basar.
 echo $string        # "string" degiskenimizin icindeki degeri ekrana basar.
-echo ${string}      # Bir usteki satirla ayni isi yapar.
-                      # '{}' kullanmamizin sebebi degisken isimlerin birbirine girmesi onlemek
-                      # ve okunabilir olmasini saglamak. 2 alt satir bu duruma ornektir
+echo ${string}      #1/ Bir usteki satirla ayni isi yapar.
+                    #2/ '{}' kullanmamizin sebebi degisken isimlerin birbirine girmesi onlemek
+                    #3/ ve okunabilir olmasini saglamak. 2 alt satir bu duruma ornektir
+
 echo ${string}abc
 echo $stringdoc     # Burda bos satir yazdiracaktir, cunku 'stringdoc' diye bir degisken yok.
 echo ${string}${integer}
-echo ${#string}     # "string" degiskenimizin icindeki degerin uzunlugunu ekrana basar.
-                        # Klasik len() fonksiyonu gibi
+echo ${#string}     #1/ "string" degiskenimizin icindeki degerin uzunlugunu ekrana basar.
+                    #2/ Klasik len() fonksiyonu gibi
+                    
                     # ${degisken:indis:uzunluk}
                     # Bash'te karakter dizilerin indisleri 0 dan baslar.
 echo ${string:7}    # "string" degiskenimizin 7.ci indisinden baslayarak yazdirir.
@@ -94,6 +96,47 @@ Naber, Nasilsin?10
 Nasilsin?
 aber
 ```
+
+# 3. Kullanicidan veri almak
+<p>C'deki scanf(), Python'daki input(), Golang'te fmt.Scanf() fonksiyonlarina benzer yapi 'shell script' te 'read' komutuyla olur.</p>
+
+```bash
+(bash-console)$ vim 3.0_read_value.sh
+```
+
+```bash
+#!/usr/bin/env bash
+
+# Metot 1
+echo "Bir sayi giriniz: "                        # Burda 'echo' komutu otomatik bir alt satira gecer.
+read sayi_degiskeni_1
+echo ${sayi_degiskeni_1}
+
+# Metot 2
+echo -n "Bir sayi giriniz: "                     # (-n) parametre bir alt satira gecmeyi onler.
+read -n 1 sayi_degiskeni_2                       # (-n 1) ile kullanicidan sadece bir karakter alir.
+echo ${sayi_degiskeni_2}
+
+# Metot 3
+read -p "Bir sayi giriniz: " sayi_degiskeni_3    # (-p) ile tek satirda kullanicidan veri alma
+echo ${sayi_degiskeni_3}
+
+# Metot 4
+read -sp "Parola: " parola                       #1/ (-s) ile kullanicinin girdigi veriyi gizler,
+                                                 #2/ misal parola icin kullanilir.
+echo ${parola}
+
+# Metot 5
+echo -e "\tBir cok veri giriniz, ama araya bosluk koyun:"   # (-e) parametresi ile \n,\t.. gibi ifadelere izin verir.
+read degisken1 degisken2 degisken3
+echo ${degisken1}
+echo ${degisken2}
+echo ${degisken3}                                           #1/ 3 ten fazla degisken girdiyseniz,
+                                                            #2/ son degiskenlerin hepsi burda toplanir.
+
+# Filename: < "3.0_read_value.sh" >
+```
+
 
 # Task Listesi
 - [ ] Benim kisimlerini bizime cevir.
