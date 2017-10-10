@@ -24,4 +24,16 @@ echo -e "\tBir cok veri giriniz, ama araya bosluk koyun:"
 read degisken1 degisken2 degisken3
 echo ${degisken1}
 echo ${degisken2}
-echo ${degisken3}            # 3 ten fazla degisken girdiyseniz, son degiskenlerin hepsi burda toplanir.
+echo ${degisken3}              # 3 ten fazla degisken girdiyseniz, son degiskenlerin hepsi burda toplanir.
+
+# Metot 6
+echo "Tanidigin Insanlar: "
+read -a people                 # Girilen parametreleri dizi olarak tutabilirsin.
+echo "Insanlar: ${people[0]} , ${people[1]}"
+
+# Metot 7
+echo "Bir isim gir: "
+read
+echo "Name: $REPLY"            # Girilen ifadeleri tek string halinde "$REPLY" ozel degiskenin de tutar.
+
+# Filename: < "3.0_read_value.sh" >
