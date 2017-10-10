@@ -5,6 +5,7 @@ Ve insanlarin her gün bilgisayarinda yaptiği sıkıcı işleri otomatikleştir
 # Repoyu okumadan once bilinmesi gerekenler!
 <ul>
   <li>Basit Unix Komutlarini bilmen lazim.</li>
+  <li>Biraz Regex bilsen iyi olur.</li>
   <li>Ve sadece Bash Shell gerekli.Linux ve MacOs da var.Microsoft'ta da artik bash geldi<a href="https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/">(link)</a>.</li>
 </ul>
 
@@ -131,9 +132,43 @@ echo -e "\tBir cok veri giriniz, ama araya bosluk koyun:"
 read degisken1 degisken2 degisken3
 echo ${degisken1}
 echo ${degisken2}
-echo ${degisken3}            # 3 ten fazla degisken girdiyseniz, son degiskenlerin hepsi burda toplanir.
+echo ${degisken3}              # 3 ten fazla degisken girdiyseniz, son degiskenlerin hepsi burda toplanir.
+
+# Metot 6
+echo "Tanidigin Insanlar: "
+read -a people                 # Girilen parametreleri dizi olarak tutabilirsin.
+echo "Insanlar: ${people[0]} , ${people[1]}"
+
+# Metot 7
+echo "Bir isim gir: "
+read
+echo "Name: $REPLY"            # Girilen ifadeleri tek string halinde "$REPLY" ozel degiskenin de tutar.
 
 # Filename: < "3.0_read_value.sh" >
+```
+
+```bash
+(bash-console)$ chmod +x 3.0_read_value.sh
+(bash-console)$ ./3.0_read_value.sh
+Bir sayi giriniz:
+1
+1
+Bir sayi giriniz: 2
+2
+Bir sayi giriniz: 3
+3
+Parola: 123456
+        Bir cok veri giriniz, ama araya bosluk koyun:
+a b c d e
+a
+b
+c d e
+Tanidigin Insanlar:
+emre mehmet ali
+Insanlar: emre , mehmet
+Bir isim gir:
+enes veli
+Name: enes veli
 ```
 
 
@@ -142,6 +177,7 @@ echo ${degisken3}            # 3 ten fazla degisken girdiyseniz, son degiskenler
 - [ ] If, else
 - [ ] For, while
 - [ ] Switch, case
+- [ ] Parameter, arguman
 - [ ] Functions
 - [ ] Arrays
 - [ ] Pipe
