@@ -89,7 +89,11 @@ echo ${string/e/E}      # Ilk uyusan 'e' ifadesini 'E' yapicak.
 echo ${string//i/Im}    # Butun 'i' leri 'Im' e cevirecek.
 echo ${string/#N/HAN}   # Soldan basliyacak 'N' ifadesini 'HAN' yapacak.
 echo ${string/%?/.txt}  # Sagdan baslayarak '?' ifadesini '.txt' yapacak.
-
+                        #1/ Bu kisima en iyi ornek sanirim, global degisken olan "PATH" in parcalanmasidir.
+echo $PATH              #2/ "PATH" degiskeni sen ne zaman konsola komut yazdiginda sirali sekilde
+                        #3/ hangi dizinleri arayacagini tutar. Bu dizinlerde calistirilabilir dosyalar var.
+echo -e "${PATH//:/\\n}"  #1/ Burda "PATH" icindeki tum ":" ifadeleri "\n" olarak ceviriyoruz.
+                          #2/ "echo" komutunu "-e" parametresiyle kullanmamizin sebebi "\n" ifadelerine izin vermek.
 # Filename: < "2.0_variables.sh" >
 ```
 
@@ -109,6 +113,14 @@ NabEr, Nasilsin?
 Naber, NasImlsImn?
 HANaber, Nasilsin?
 Naber, Nasilsin.txt
+/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+/usr/local/sbin
+/usr/local/bin
+/usr/bin
+/usr/lib/jvm/default/bin
+/usr/bin/site_perl
+/usr/bin/vendor_perl
+/usr/bin/core_perl
 ```
 
 # 3. Kullanicidan veri almak
@@ -187,6 +199,7 @@ Name: enes veli
 
 # Task Listesi
 - [ ] Benim kisimlerini bizime cevir.
+- [ ] Kodlarin ciktilari cok buyuk oluyor, parca parca mi yazsak? Ya da yazilan kodun icine mi coklu yorum satiri olarak mi tutsak.
 - [ ] If, else
 - [ ] For, while
 - [ ] Switch, case
