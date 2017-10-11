@@ -81,6 +81,15 @@ echo ${#string}     #1/ "string" degiskenimizin icindeki degerin uzunlugunu ekra
 echo ${string:7}    # "string" degiskenimizin 7.ci indisinden baslayarak yazdirir.
 echo ${string:1:4}  # "string" degiskenimizin 1.ci indisinden baslayarak, 4 birim uzunlugunda karakter dizisi yazdirir.
 
+                        # ${degisken/pattern/yeni_kelime_yada_harf}     # Ilk uyusan ifade
+                        # ${degisken//pattern/yeni_kelime_yada_harf}    # genel
+                        # ${degisken/#pattern/yeni_kelime_yada_harf}    # soldan uyusan. yani degiskenin ilk harfinden baslayarak uyusmali.
+                        # ${degiskne/%pattern/yeni_kelime_yada_harf}    # sagdan uyusan. yani degiskenin son harfinden baslayarak uyusmali.
+echo ${string/e/E}      # Ilk uyusan 'e' ifadesini 'E' yapicak.
+echo ${string//i/Im}    # Butun 'i' leri 'Im' e cevirecek.
+echo ${string/#N/HAN}   # Soldan basliyacak 'N' ifadesini 'HAN' yapacak.
+echo ${string/%?/.txt}  # Sagdan baslayarak '?' ifadesini '.txt' yapacak.
+
 # Filename: < "2.0_variables.sh" >
 ```
 
@@ -96,6 +105,10 @@ Naber, Nasilsin?10
 16
 Nasilsin?
 aber
+NabEr, Nasilsin?
+Naber, NasImlsImn?
+HANaber, Nasilsin?
+Naber, Nasilsin.txt
 ```
 
 # 3. Kullanicidan veri almak
